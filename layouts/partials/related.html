@@ -1,10 +1,10 @@
 <div id="related">
   <section>
-    <h5>A little bit more ...</h5>
+    <h5>{{ i18n "ALittleBitMore" }}&hellip;</h5>
     <ul>
       {{ range first 5 .RelatedPages }}
       <li>
-        <a href="{{ .Permalink }}">{{ .Title }} - {{ .ReadingTime }} Minutes</a>
+        <a href="{{ .Permalink }}">{{ .Title }} - {{ i18n "minReading" .ReadingTime }}</a>
       </li>
       {{ end }}
     </ul>

@@ -1,0 +1,33 @@
+# a dirty hack to localize date (see Month.toml)
+[ru]
+other = "0"
+
+[author]
+other = "Некто"
+
+[readMore]
+other = "Читать"
+
+[minReading]
+other = "{{ .Count }} мин на чтение"
+
+[Menu]
+other = "Меню"
+
+[postTOC]
+other = "Оглавление"
+
+[NewerPosts]
+other = "Поновее"
+
+[OlderPosts]
+other = "Постарее"
+
+[PaginatorPage]
+other = "Страница"
+
+[PaginatorOf]
+other = "из"
+
+[ALittleBitMore]
+other = "Что-то по теме"

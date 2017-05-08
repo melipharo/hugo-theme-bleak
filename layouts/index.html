@@ -2,15 +2,13 @@
 
 	<header id="header" class="header{{ if .Site.Params.cover }} has-cover{{ end }}">
 		<div class="inner">
-			<a class="header-title" href="{{ .Site.BaseURL }}">
+			<a class="header-title" href="{{ default "/" (.Site.LanguagePrefix) }}">
 				<h1 class="header-name">{{ .Site.Title }}</h1>
-				{{ if .Site.Params.Subtitle }}
-					<span class="header-description">{{ .Site.Params.Subtitle }}</span>
-				{{ end }}
+					<span class="header-description">{{ .Site.Params.subtitle }}</span>
 			</a>
 		</div>
 		{{ if .Site.Params.cover }}
-		<div class="header-cover blured-image" style="background-color: darkgreen; background-image: url(/images/cover.low.jpg)" data-src="{{ .Site.Params.cover }}"></div>
+		<div class="header-cover" style="background-color: #EE964B; background-image: url({{ .Site.Params.cover }})"></div>
 		{{ end }}
 	</header>
 
@@ -30,10 +28,27 @@
 				</div>
 			</div>
 
-			{{ partial "pagination.html" (dict "paginator" $paginator "site" .Site ) }}
+			<nav id="pagination" class="pagination" role="pagination">
+				<div class="inner">
+				{{if $paginator.HasPrev}}
+					{{ $prevUrl := delimit (slice .Site.BaseURL (trim $paginator.Prev.URL "/") ) "" }}
+				<a class="pagination-item pagination-next" href="{{ $prevUrl }}"><i class="icon-arrow-left"></i> <span>{{ i18n "NewerPosts" }}</span></a>
+				{{end}}
+					<span class="pagination-info">{{ i18n "PaginatorPage" }} {{ $paginator.PageNumber }} {{ i18n "PaginatorOf" }} {{$paginator.TotalPages}}</span>
+				{{if $paginator.HasNext}}
+					{{ $nextUrl := delimit (slice .Site.BaseURL (trim $paginator.Next.URL "/") ) "" }}
+				<a class="pagination-item pagination-prev" href="{{ $nextUrl }}"><span>{{ i18n "OlderPosts" }}</span> <i class="icon-arrow-right"></i></a>
+				{{end}}
+					<div class="clear"></div>
+				</div>
+			</nav>
 
 		</main>
 
 	</div>
 
 {{ partial "footer.html" . }}
+
+{{ if .Site.Params.debugMode }}
+	{{ printf "%#v" . }}
+{{ end }}

@@ -1,0 +1,34 @@
+# a dirty hack to localize date (see Month.toml)
+[en]
+other = "1"
+
+[author]
+other = "Somebody"
+
+[readMore]
+other = "Read"
+
+[minReading]
+one = "{{ .Count }} min. reading"
+other = "{{ .Count }} mins. reading"
+
+[Menu]
+other = "Menu"
+
+[postTOC]
+other = "TOC"
+
+[NewerPosts]
+other = "Newer Posts"
+
+[OlderPosts]
+other = "Older Posts"
+
+[PaginatorPage]
+other = "Page"
+
+[PaginatorOf]
+other = "of"
+
+[ALittleBitMore]
+other = "A little bit more"

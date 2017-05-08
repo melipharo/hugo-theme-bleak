@@ -2,8 +2,8 @@
 
 <header id="header" class="header{{ if .Site.Params.cover }} has-cover{{ end }}">
 	<div class="inner">
-		<a class="header-title" href="{{ .Site.BaseURL }}">
-			<h1 class="header-name">{{ .Title }}</h1>
+		<a class="header-title" href="{{ default "/" (.Site.LanguagePrefix) }}">
+			<h1 class="header-name">{{ default .Title (i18n (print "category" .Title)) }}</h1>
 		</a>
 	</div>
 	{{ if .Site.Params.cover }}
@@ -27,7 +27,20 @@
 				</div>
 			</div>
 
-			{{ partial "pagination.html" (dict "paginator" $paginator "site" .Site ) }}
+			<nav id="pagination" class="pagination" role="pagination">
+				<div class="inner">
+				{{if $paginator.HasPrev}}
+					{{ $prevUrl := delimit (slice .Site.BaseURL (trim $paginator.Prev.URL "/") ) "" }}
+				<a class="pagination-item pagination-next" href="{{ $prevUrl }}"><i class="icon-arrow-left"></i> <span>{{ i18n "NewerPosts" }}</span></a>
+				{{end}}
+					<span class="pagination-info">{{ i18n "PaginatorPage" }} {{ $paginator.PageNumber }} {{ i18n "PaginatorOf" }} {{$paginator.TotalPages}}</span>
+				{{if $paginator.HasNext}}
+					{{ $nextUrl := delimit (slice .Site.BaseURL (trim $paginator.Next.URL "/") ) "" }}
+				<a class="pagination-item pagination-prev" href="{{ $nextUrl }}"><span>{{ i18n "OlderPosts" }}</span> <i class="icon-arrow-right"></i></a>
+				{{end}}
+					<div class="clear"></div>
+				</div>
+			</nav>
 
 		</main>
 

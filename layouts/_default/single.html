@@ -14,7 +14,10 @@
 						</span></span>
   				</span>
   				<div class="clear"></div>
-  				<h1 class="post-title">{{ .Title }}</h1>
+				<h1 class="post-title">
+					{{ .Title }}
+					<span style="float: right">{{ partial "mind_buttons.html" .Page }}</span>
+				</h1>
   			</header>
 
   			<section class="post-content">

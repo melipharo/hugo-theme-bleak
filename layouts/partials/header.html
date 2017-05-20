@@ -69,30 +69,18 @@
           "@type": "WebPage",
           "@id": "{{ .Permalink | safeJS }}"
         },
-        "headline": "{{ .Title | safeJS}}",
+        "headline": "{{ .Title | safeJS }}",
         "description": "{{ printf "%s" .Description }}",
         "author": {
             "@type": "Person",
             "name": "{{ .Site.Params.author.firstName }} {{ .Site.Params.author.lastName }}",
-            "url": "http://profiles.google.com/{{ .Site.Params.author.gplus }}?rel=author",
+            "url": "{{ absURL "/" }}",
             "image": {
               "@type": "ImageObject",
-              "url": "https:{{ .Site.Params.author.image }}",
+              "url": "{{ absURL .Params.image }}",
               "height": 80,
               "width": 80
             }
-        },
-        "publisher": {
-          "@type": "Organization",
-          "@id": "{{ .Site.BaseURL }}",
-          "name": "{{ .Site.Title }}",
-          "url": "{{ .Site.BaseURL }}",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https:{{ .Site.Params.author.image }}",
-            "height": 80,
-            "width": 80
-          }
         },
         {{ if .Params.image }}"image": {
           "@type": "ImageObject",

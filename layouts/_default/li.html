@@ -17,6 +17,7 @@
 		<h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
 		{{ if .Description }}
 		<p class="post-excerpt">{{ .Description }}&hellip;</p>
+		{{ end }}
 		<span class="post-more"><a href="{{ .Permalink }}">{{ i18n "readMore" }} <i class="icon-arrow-right"></i></a></span>
 	</div>
 </article>

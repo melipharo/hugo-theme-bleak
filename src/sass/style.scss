@@ -6,9 +6,6 @@ $breakpoint-phone:   30em;
 $breakpoint-tablet:  50em;
 $breakpoint-desktop: 70em;
 
-$color-blue:      #19A0D7;
-$color-blue-dark: #0E77A0;
-
 $color-yellow-100: #FFC336;
 
 $color-gray-97: #F2F3F5;
@@ -25,8 +22,8 @@ $color-gray-15: #1F2026;
   backgrounds or as background color for light and dark text color
 */
 
-$color-primary-default: $color-blue; /* Light */
-$color-primary-active:  $color-blue-dark; /* Dark */
+$color-primary-default: #f4ebca; /* Light */
+$color-primary-active:  #aca691; /* Dark */
 
 
 /* ==========================================================================
@@ -1088,8 +1085,12 @@ body {
     left: 0;
     margin-top: -4em;
     padding: 4em 0;
-    background: no-repeat fixed center 100% / cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    background-size: 100% / cover;
     z-index: 1;
+    background-color: $color-primary-default;
 
      &:before {
         content: '';
@@ -1447,7 +1448,7 @@ body {
 
     .post-image {
       position: relative;
-      margin: -2em -1.99em 0;
+      margin: -2em -1.99999em 0;
       overflow: hidden;
       background: $color-primary-default;
 
@@ -2030,7 +2031,7 @@ body {
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: $color-blue;
+    border-top-color: $color-primary-default;
     -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
@@ -2044,7 +2045,7 @@ body {
     bottom: 5px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: $color-blue-dark;
+    border-top-color: $color-primary-active;
     -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
       animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }

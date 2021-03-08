@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="preload" href="{{ .Site.BaseURL }}/js/main.js" as="script" />
     <link rel="preload" href="{{ .Site.BaseURL }}/css/main.css" as="style" />
+
     {{ range .Site.Params.customCSS }}
     <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
     {{ end }}
